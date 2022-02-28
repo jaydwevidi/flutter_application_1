@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/choose_page.dart';
+import 'package:flutter_application_1/pages/forth_page.dart';
+import 'package:flutter_application_1/pages/gird_page.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter_application_1/themes/MyThemes.dart';
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         "/": (context) => const ChoosePage(),
         "/homePage": (context) => const HomePage(),
         "/loginPage": (context) => const LoginPage(),
+        "/gridPage": (context) => const GridPage(),
+        "/forthPage": (context) => const ForthPage(),
       },
     );
   }

@@ -6,7 +6,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/models/users/user.dart';
-import 'package:flutter_application_1/models/users/user_list.dart';
 import 'package:flutter_application_1/widgets/home_page/drawer.dart';
 import 'package:flutter_application_1/widgets/home_page/user_widget.dart';
 
@@ -18,7 +17,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Users> myUserList = UserList.user;
+  List<Users> myUserList = List<Users>.empty();
+  bool listReady = false;
 
   @override
   void initState() {
@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 3));
     final jsonFile = await rootBundle.loadString("assets/json/users.json");
     final decodedData = jsonDecode(jsonFile);
     final dataList = decodedData["data"];
@@ -34,6 +35,8 @@ class _HomePageState extends State<HomePage> {
     log(dataList.toString());
     myUserList =
         List.from(dataList).map<Users>((item) => Users.fromMap(item)).toList();
+
+    listReady = true;
 
     setState(() {});
   }
@@ -48,12 +51,13 @@ class _HomePageState extends State<HomePage> {
             "My Home Page",
             textScaleFactor: 1.3,
           )),
-      body: ListView.builder(
+      body: listReady
+          ? ListView.builder(
           itemCount: myUserList.length,
-          itemBuilder: (context, index) {
-            var positiont = index % 2;
+              itemBuilder: (context, index) {
             return UserWidget(item: myUserList[index]);
-          }),
+              })
+          : Center(child: CircularProgressIndicator()),
     );
   }
 }
