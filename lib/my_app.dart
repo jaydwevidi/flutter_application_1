@@ -6,8 +6,7 @@ import 'package:flutter_application_1/pages/forth_page.dart';
 import 'package:flutter_application_1/pages/gird_page.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
-import 'package:flutter_application_1/themes/MyThemes.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_application_1/themes/my_themes.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => const ChoosePage(),
         "/homePage": (context) => const HomePage(),
         "/loginPage": (context) => const LoginPage(),
-        "/gridPage": (context) => const GridPage(),
+        "/gridPage": (context) => GridPage(),
         "/forthPage": (context) => const ForthPage(),
       },
     );

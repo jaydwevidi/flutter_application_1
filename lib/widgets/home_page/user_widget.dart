@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/users/user.dart';
 
 class UserWidget extends StatelessWidget {
-  final Users item;
+  final User item;
 
   const UserWidget({Key? key, required this.item}) : super(key: key);
 

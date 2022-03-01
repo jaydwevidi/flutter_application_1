@@ -2,7 +2,9 @@
 
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io' show Platform;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/models/users/user.dart';
@@ -17,7 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Users> myUserList = List<Users>.empty();
+  List<User> myUserList = List<User>.empty();
   bool listReady = false;
 
   @override
@@ -34,7 +36,7 @@ class _HomePageState extends State<HomePage> {
 
     log(dataList.toString());
     myUserList =
-        List.from(dataList).map<Users>((item) => Users.fromMap(item)).toList();
+        List.from(dataList).map<User>((item) => User.fromMap(item)).toList();
 
     listReady = true;
 
@@ -57,7 +59,9 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
             return UserWidget(item: myUserList[index]);
               })
-          : Center(child: CircularProgressIndicator()),
+          : Platform.isAndroid
+              ? Center(child: CupertinoActivityIndicator())
+              : CircularProgressIndicator(),
     );
   }
 }

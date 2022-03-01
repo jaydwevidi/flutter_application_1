@@ -32,9 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   var isPrimeBool = "Not Prime ";
 
   moveToHome(BuildContext context) {
-    if (_formKey.currentState?.validate() == true) {
-
-    }
+    if (_formKey.currentState?.validate() == true) {}
 
     numCount++;
     isPrimeBool = isPrime(numCount);
@@ -153,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                 //margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               ),
             )
-          ],
+          ], //
         ),
       ),
     ));

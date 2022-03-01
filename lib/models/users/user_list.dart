@@ -1,8 +1,8 @@
 import 'package:flutter_application_1/models/users/user.dart';
 
 class UserList {
-  static List<Users> user = [
-    Users(
+  static List<User> user = [
+    User(
         id: 0,
         email: "jayraj1999@gmail.com",
         first_name: "first_name",

@@ -1,11 +1,11 @@
-class Users {
+class User {
   final int id;
   final String email;
   final String first_name;
   final String last_name;
   final String avatar;
 
-  Users({
+  User({
     required this.id,
     required this.email,
     required this.first_name,
@@ -13,8 +13,8 @@ class Users {
     required this.avatar,
   });
 
-  factory Users.fromMap(Map<String, dynamic> map) {
-    return Users(
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
         id: map["id"],
         email: map["email"],
         first_name: map["first_name"],
